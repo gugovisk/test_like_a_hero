@@ -85,3 +85,195 @@
   [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "nickname", "kind", "level") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 16:27:35.543001"], ["updated_at", "2023-04-17 16:27:35.543001"], ["nickname", "Laverna"], ["kind", 1], ["level", 87]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWeapons (20230417164716)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "weapons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230417164716"]]
+  [1m[36mTRANSACTION (142.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameDescriptionPowerBasePowerStepLevelToWeapon (20230417165701)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "weapons" ADD "name" varchar[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "weapons" ADD "description" varchar[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "weapons" ADD "power_base" integer[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "weapons" ADD "power_step" integer[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "weapons" ADD "level" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230417165701"]]
+  [1m[36mTRANSACTION (97.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (134.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "nickname" varchar, "kind" integer, "level" integer)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "weapons"[0m
+  [1m[35m (132.4ms)[0m  [1m[35mCREATE TABLE "weapons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar, "description" varchar, "power_base" integer, "power_step" integer, "level" integer)[0m
+  [1m[35m (130.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (105.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230417165701)[0m
+  [1m[35m (108.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230417143909),
+(20230417144153),
+(20230417164716);
+
+[0m
+  [1m[35m (122.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-04-17 17:05:31.929302"], ["updated_at", "2023-04-17 17:05:31.929302"]]
+  [1m[36mTRANSACTION (152.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "c04d664a95571b3569c39e2723fd15406fb8c859"], ["created_at", "2023-04-17 17:05:32.093889"], ["updated_at", "2023-04-17 17:05:32.093889"]]
+  [1m[36mTRANSACTION (107.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:07:28.873774"], ["updated_at", "2023-04-17 17:07:28.873774"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:07:28.977113"], ["updated_at", "2023-04-17 17:07:28.977113"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", -20], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (1.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:07:29.089467"], ["updated_at", "2023-04-17 17:07:29.089467"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:09:56.681791"], ["updated_at", "2023-04-17 17:09:56.681791"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:09:56.741327"], ["updated_at", "2023-04-17 17:09:56.741327"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", -20], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:09:56.765718"], ["updated_at", "2023-04-17 17:09:56.765718"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:10:25.247695"], ["updated_at", "2023-04-17 17:10:25.247695"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:11:11.568181"], ["updated_at", "2023-04-17 17:11:11.568181"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:11:11.629366"], ["updated_at", "2023-04-17 17:11:11.629366"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", -20], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:13:48.331779"], ["updated_at", "2023-04-17 17:13:48.331779"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:13:48.388322"], ["updated_at", "2023-04-17 17:13:48.388322"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:08.456280"], ["updated_at", "2023-04-17 17:15:08.456280"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.5ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:08.517603"], ["updated_at", "2023-04-17 17:15:08.517603"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", -200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.5ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:08.540742"], ["updated_at", "2023-04-17 17:15:08.540742"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:49.759818"], ["updated_at", "2023-04-17 17:15:49.759818"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:49.818830"], ["updated_at", "2023-04-17 17:15:49.818830"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", -200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:15:49.823886"], ["updated_at", "2023-04-17 17:15:49.823886"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:18:25.286426"], ["updated_at", "2023-04-17 17:18:25.286426"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:18:25.349213"], ["updated_at", "2023-04-17 17:18:25.349213"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 14]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:18:57.695305"], ["updated_at", "2023-04-17 17:18:57.695305"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 12]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.4ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:18:57.762215"], ["updated_at", "2023-04-17 17:18:57.762215"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 12]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:19:21.942184"], ["updated_at", "2023-04-17 17:19:21.942184"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 12]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeapon Create (0.3ms)[0m  [1m[32mINSERT INTO "weapons" ("created_at", "updated_at", "name", "description", "power_base", "power_step", "level") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2023-04-17 17:19:22.004425"], ["updated_at", "2023-04-17 17:19:22.004425"], ["name", "Faquinha"], ["description", "Faca"], ["power_base", 200], ["power_step", 150], ["level", 12]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
