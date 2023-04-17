@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Foi usado a gem FactoryBot com a função build()
 RSpec.describe Weapon, type: :model do
   it "is valid if the level is between 1 and 99" do
     weapon = build(:weapon, level: FFaker::Random.rand(1..99))
